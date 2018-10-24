@@ -24,15 +24,8 @@ public class SeleniumContainerTest {
     public void simplePlainSeleniumTest() throws InterruptedException {
 
         RemoteWebDriver driver = chrome.getWebDriver();
-//        driver.get("http://localhost/wordpress-test/");
-//        driver.get("http://10.11.1.188");
-        driver.get("http://wordpress-test/");
+        driver.get("http://wordpress.local/");
         Thread.sleep(3000);
-
-        System.out.println(chrome.getPassword());
-        System.out.println(chrome.getPort());
-        System.out.println(chrome.getSeleniumAddress());
-        System.out.println(chrome.getVncAddress());
 
 //        WebElement scrollButton = driver.findElementByClassName("menu-scroll-down");
 //        scrollButton.click();
