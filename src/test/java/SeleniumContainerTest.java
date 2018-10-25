@@ -1,6 +1,5 @@
 import org.junit.Rule;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.containers.BrowserWebDriverContainer;
@@ -22,19 +21,13 @@ public class SeleniumContainerTest {
 
     @Test
     public void simplePlainSeleniumTest() throws InterruptedException {
-
         RemoteWebDriver driver = chrome.getWebDriver();
         driver.get("http://wordpress.local/");
+        driver.findElementById("menu-item-388").click();
         Thread.sleep(3000);
-
-//        WebElement scrollButton = driver.findElementByClassName("menu-scroll-down");
-//        scrollButton.click();
-//        WebElement searchInput = driver.findElementByClassName("search-form");
-//        searchInput.sendKeys("test");
-//        searchInput.submit();
-//        boolean expectedTextFound = driver.findElementsByCssSelector("p")
-//                .stream()
-//                .anyMatch(element -> element.getText().contains("Lorem"));
-//        assertTrue("The word 'Lorem' is found on a page", expectedTextFound);
+        boolean expectedTextFound = driver.findElementsByCssSelector("p")
+                .stream()
+                .anyMatch(element -> element.getText().contains("this"));
+        assertTrue("The word 'this' is found on a page", expectedTextFound);
     }
 }
